@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float speed = 100.0f;
     Rigidbody rb;
     MeshRenderer render;
+    Vector3 curDirection = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,17 @@ public class Player : MonoBehaviour
     {
         //Vector3 randDir = Random.onUnitSphere;
         //rb.AddForce(new Vector3(randDir.x, 0, randDir.y) * Random.Range(1,100));
+        
+        rb.AddForce(curDirection * speed);
+        
+        //kinematic
+        //rb.position += curDirection * speed * Time.deltaTime;
     }
 
     void OnMove(InputValue input)
     {
         Vector2 dir = input.Get<Vector2>();
-        rb.AddForce(new Vector3(dir.x, 0, dir.y) * speed);
+        curDirection = new Vector3(dir.x, 0, dir.y);
     }
 
     private void OnCollisionEnter(Collision collision)
