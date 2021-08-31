@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
 
     public float speed = 100.0f;
     Rigidbody rb;
+    MeshRenderer render;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        render = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -26,5 +28,14 @@ public class Player : MonoBehaviour
     {
         Vector2 dir = input.Get<Vector2>();
         rb.AddForce(new Vector3(dir.x, 0, dir.y) * speed);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            Obstacle obs = collision.gameObject.GetComponent<Obstacle>();
+            render.material.color = obs.color;
+        }
     }
 }

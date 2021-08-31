@@ -106,7 +106,7 @@
                 {
                     "name": "left",
                     "id": "997f058a-a847-4ef7-b515-2d3905157be9",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -117,7 +117,7 @@
                 {
                     "name": "right",
                     "id": "d268fc83-433c-4af4-9bdc-eca0b84ba43f",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
